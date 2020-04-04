@@ -10,12 +10,12 @@
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/responsive.css');?>">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 
-    <title>Feira Coletiva</title>
+    <title>Autônomos</title>
   </head>
   
   <body>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="menu">
-	  <a class="navbar-brand" href="#" id="logo">Feira Coletiva</a>
+	  <a class="navbar-brand" href="#" id="logo">Autônomos</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
@@ -26,10 +26,7 @@
 			<a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#feirantes">Feirantes</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#feiras">Feiras</a>
+			<a class="nav-link" href="#servicos">Serviços</a>
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="#">Quem Somos</a>

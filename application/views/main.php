@@ -15,7 +15,7 @@
   
   <body>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="menu">
-	  <a class="navbar-brand" href="#" id="logo">Feira Coletiva</a>
+	  <a class="navbar-brand" href="#" id="logo">Autônomos</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
@@ -26,10 +26,7 @@
 			<a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#feirantes">Feirantes</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#feiras">Feiras</a>
+			<a class="nav-link" href="#servicos">Serviços</a>
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="#">Quem Somos</a>
@@ -58,7 +55,7 @@
 	
 	<div id="principal" data-parallax="scroll" data-image-src="vendor/twbs/bootstrap/dist/img/vegetais.jpg">
 
-		<p id="p_principal">Feira Coletiva</p>
+		<p id="p_principal">Autônomos</p>
 		
 		<form class="container">
 		  <div class="form-group">
@@ -69,70 +66,9 @@
 
 	</div>
 	
-	<div class="container mt-5" id="feirantes">
+	<div class="container mt-5" id="servicos">
 	
-		<p id="p_feirantes">Feirantes</p>
-		
-		<div class="row d-flex align-content-start flex-wrap">
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="vendor/twbs/bootstrap/dist/img/feirante.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>
-			
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="vendor/twbs/bootstrap/dist/img/feirante.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>
-
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="vendor/twbs/bootstrap/dist/img/feirante.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>	
-			
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="vendor/twbs/bootstrap/dist/img/feirante.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>	
-
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="vendor/twbs/bootstrap/dist/img/feirante.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>	
-
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="vendor/twbs/bootstrap/dist/img/feirante.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>			
-		</div>
-	</div>
-
-	<div class="container mt-5" id="feiras">
-	
-		<p id="p_feiras">Feiras</p>
+		<p id="p_servicos">Serviços</p>
 		
 		<div class="row d-flex align-content-start flex-wrap">
 			<div class="card mb-5 col-lg-3" style="width: 16rem;">

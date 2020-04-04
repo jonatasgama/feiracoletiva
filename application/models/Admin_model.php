@@ -17,5 +17,17 @@ class Admin_model extends CI_Model{
 		$result = $this->db->query($sql);
 		return $result;
 	}	
+	
+	public function insereCategoria($cat, $id){
+		$sql = "INSERT INTO tbl_categoria_autonomo (id_categoria, id_autonomo) values (?, ?)";
+		$result = $this->db->query($sql, array($cat, $id));
+		return $result;
+	}
+	
+	public function listaCategorias(){
+		$sql = "SELECT * FROM tbl_categoria";
+		$result = $this->db->query($sql);
+		return $result;
+	}	
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -19,6 +19,9 @@
   <link href="<?=base_url('admin_assets/css/sb-admin-2.min.css');?>" rel="stylesheet">
   <link href="<?=base_url('admin_assets/css/loader.css');?>" rel="stylesheet">
 
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="<?=base_url('admin_assets/vendor/jquery/jquery.min.js');?>"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -39,7 +42,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -51,13 +54,13 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <span><i class="fas fa-user"></i> Feirantes</span>
+          <span><i class="fas fa-user"></i> Autônomos</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">opções:</h6>
-            <a class="collapse-item" href="<?=base_url('admin/cadastrafeirante');?>">Novo</a>
-            <a class="collapse-item" href="<?=base_url('admin/listafeirantes');?>">Listar</a>
+            <a class="collapse-item" href="<?=base_url('admin/cadastraautonomo');?>">Novo</a>
+            <a class="collapse-item" href="<?=base_url('admin/listaautonomo');?>">Listar</a>
           </div>
         </div>
       </li>
@@ -70,12 +73,24 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">opções:</h6>
             <a class="collapse-item" href="">Novo</a>
-            <a class="collapse-item" href="utilities-border.html">Listar</a>
+            <a class="collapse-item" href="">Listar</a>
           </div>
         </div>
       </li>
 
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categorias" aria-expanded="true" aria-controls="categorias">
+          <i class="fas fa-tools"></i><span>Categorias</span>
+        </a>
+        <div id="categorias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">opções:</h6>
+            <a class="collapse-item" href="<?=base_url('admin/cadastracategoria');?>">Nova</a>
+            <a class="collapse-item" href="<?=base_url('admin/listacategoria');?>">Listar</a>
+          </div>
+        </div>
+      </li>
+	  
        <!--<hr class="sidebar-divider">
 
 

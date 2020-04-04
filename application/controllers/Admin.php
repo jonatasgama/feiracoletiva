@@ -20,20 +20,21 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer/footer');
 	}
 
-	public function cadastraFeirante(){
+	public function cadastraAutonomo(){
+		$data['categorias'] = $this->admin_model->listaCategorias()->result();
 		$this->load->view('admin/header/header');
-		$this->load->view('admin/cadastra_feirante');
+		$this->load->view('admin/cadastra_autonomo', $data);
 		$this->load->view('admin/footer/footer');
 	}	
 	
-	public function cadastrarFeirante(){
-		$tbl_feirante['nome'] = $this->input->post("nome");
-		$tbl_feirante['telefone'] = $this->input->post("telefone");
-		$tbl_feirante['forma_de_pagamento'] = $this->input->post("forma_de_pagamento");	
-		$tbl_feirante['faz_entrega'] = $this->input->post("faz_entrega");
-		$tbl_feirante['endereco'] = str_replace(array("\r","\n"), " ", $this->input->post("endereco"));	
+	public function cadastrarAutonomo(){
+		$tbl_autonomo['nome'] = $this->input->post("nome");
+		$tbl_autonomo['telefone'] = $this->input->post("telefone");
+		$tbl_autonomo['forma_de_pagamento'] = $this->input->post("forma_de_pagamento");	
+		//$tbl_autonomo['id_categoria'] = $this->input->post("id_categoria");
+		$tbl_autonomo['area_de_cobertura'] = str_replace(array("\r","\n"), " ", $this->input->post("area_de_cobertura"));	
 				
-		if($this->db->insert('tbl_feirante', $tbl_feirante)){
+		if($this->db->insert('tbl_autonomo', $tbl_autonomo)){
 			echo json_encode(array('msg' => 'Dados salvos com sucesso.'));
 			//upload da foto
 			$config['upload_path'] = './uploads/'; 
@@ -43,6 +44,7 @@ class Admin extends CI_Controller {
 			$config['overwrite'] = true;
 			$config['file_ext_tolower'] = true;
 			$this->upload->initialize($config);
+			$this->insereCategoria($this->db->insert_id());
 			if(!$this->upload->do_upload("foto")){
 				echo json_encode(array('msg' => 'Não foi possível salvar a foto: '.$this->upload->display_errors()));
 			}			
@@ -54,10 +56,10 @@ class Admin extends CI_Controller {
         //exit();
 	}	
 
-	public function listaFeirantes(){
-		//$dados['lista'] = $this->admin_model->listaFeirantes()->result();
+	public function listaautonomo(){
+		//$dados['lista'] = $this->admin_model->listaautonomos()->result();
 		$this->load->view('admin/header/header');
-		$this->load->view('admin/lista_feirantes');
+		$this->load->view('admin/lista_autonomo');
 		$this->load->view('admin/footer/footer');
 	}	
 	
@@ -69,11 +71,11 @@ class Admin extends CI_Controller {
 			  $rowno = ($rowno-1) * $rowperpage;
 			}
 	  
-			$query = $this->db->get('tbl_feirante');
+			$query = $this->db->get('tbl_autonomo');
 			$allcount = $query->num_rows();
 
 			$this->db->limit($rowperpage, $rowno);
-			$query = $this->db->get('tbl_feirante');
+			$query = $this->db->get('tbl_autonomo');
 			$users_record = $query->result_array();
 	  
 			$config['base_url'] = base_url().'admin/paginacao';
@@ -104,4 +106,26 @@ class Admin extends CI_Controller {
 	 
 			echo json_encode($data);
 	  }	
+	  
+	  public function insereCategoria($id){
+		$categoria = explode(",", $this->input->post("id_categoria"));
+		foreach($categoria as $cat){
+			$this->admin_model->insereCategoria($cat, $id);
+		}
+	  }
+	  
+	public function cadastraCategoria(){
+		$this->load->view('admin/header/header');
+		$this->load->view('admin/cadastra_categoria');
+		$this->load->view('admin/footer/footer');
+	}	  
+	
+	public function cadastrarCategoria(){
+		$tbl_categoria['categoria'] = $this->input->post("categoria");				
+		if($this->db->insert('tbl_categoria', $tbl_categoria)){
+			echo json_encode(array('msg' => "Categoria ".$this->input->post('categoria')." cadastrada com sucesso."));	
+		}else{
+			echo json_encode(array('msg' => 'Houve algum erro.'));
+		}
+	}	
 }

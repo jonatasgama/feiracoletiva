@@ -1,6 +1,6 @@
 	<div id="principal" data-parallax="scroll" data-image-src="<?=base_url('vendor/twbs/bootstrap/dist/img/vegetais.jpg');?>">
 
-		<p id="p_principal">Feira Coletiva</p>
+		<p id="p_principal">Autônomos </p>
 		
 		<form class="container">
 		  <div class="form-group">
@@ -11,70 +11,9 @@
 
 	</div>
 	
-	<div class="container mt-5" id="feirantes">
+	<div class="container mt-5" id="servicos">
 	
-		<p id="p_feirantes">Feirantes</p>
-		
-		<div class="row d-flex align-content-start flex-wrap">
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="<?=base_url('vendor/twbs/bootstrap/dist/img/feirante.jpg');?>" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>
-			
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="<?=base_url('vendor/twbs/bootstrap/dist/img/feirante.jpg');?>" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>
-
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="<?=base_url('vendor/twbs/bootstrap/dist/img/feirante.jpg');?>" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>	
-			
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="<?=base_url('vendor/twbs/bootstrap/dist/img/feirante.jpg');?>" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>	
-
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="<?=base_url('vendor/twbs/bootstrap/dist/img/feirante.jpg');?>" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>	
-
-			<div class="card mb-5 col-lg-3" style="width: 16rem;">
-			  <img src="<?=base_url('vendor/twbs/bootstrap/dist/img/feirante.jpg');?>" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Barra do Agenor</h5>
-				<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>
-				<a href="#" class="btn btn-primary">Ver perfil</a>
-			  </div>
-			</div>			
-		</div>
-	</div>
-
-	<div class="container mt-5" id="feiras">
-	
-		<p id="p_feiras">Feiras</p>
+		<p id="p_servicos">Serviços</p>
 		
 		<div class="row d-flex align-content-start flex-wrap">
 			<div class="card mb-5 col-lg-3" style="width: 16rem;">

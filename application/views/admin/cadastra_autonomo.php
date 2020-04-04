@@ -6,11 +6,11 @@
 	  <!-- Basic Card Example -->
 	  <div class="card shadow mb-4">
 		<div class="card-header py-3">
-		  <h6 class="m-0 font-weight-bold text-primary">Cadastrar Feirante</h6>
+		  <h6 class="m-0 font-weight-bold text-primary">Cadastrar Autônomo</h6>
 		</div>
 		<div class="card-body">
 
-			<form id="form" enctype="multipart/formdata">
+			<form id="form">
 				<div class="row">
 				  <div class="form-group col-6">
 					<label for="nome">Nome</label>
@@ -24,27 +24,31 @@
 				</div>
 				
 				<div class="row">
-				  <div class="form-group col-9">
+				  <div class="form-group col-12">
 					<label for="forma_de_pagamento">Formas de Pagamento</label>
 					<input type="text" class="form-control" id="forma_de_pagamento" name="forma_de_pagamento">
 				  </div>
 				  
-				  <div class="form-group col-3">
+				</div>
+				
+			  <div class="form-group">
+				<label for="area_de_cobertura">Área de Cobertura</label>
+				<textarea class="form-control" id="area_de_cobertura" name="area_de_cobertura" rows="3"></textarea>
+			  </div>		  
+			  
+			  <div class="row">
+				  <div class="form-group col-12">
 					  <div class="form-group">
-						<label for="faz_entrega">Faz Entrega?</label>
-						<select class="form-control" id="faz_entrega" name="faz_entrega">
-						  <option value="sim">sim</option>
-						  <option value="não">não</option>
+						<label for="id_categoria">Categoria</label>
+						<select multiple class="form-control js-example-basic-multiple" id="id_categoria" name="id_categoria" onchange="seleciona(this)">
+							<?php foreach($categorias as $cat){ ?>
+								<option value="<?=$cat->id?>"><?=$cat->categoria?></option>
+							<?php } ?>
 						</select>
 					  </div>
 				  </div>
+			  </div>	  
 				  
-				</div>
-			  <div class="form-group">
-				<label for="endereco">Endereço</label>
-				<textarea class="form-control" id="endereco" name="endereco" rows="3"></textarea>
-			  </div>		  
-			  
 			  <div class="custom-file">
 				<input type="file" class="custom-file-input" name="foto" id="foto" required>
 				<label class="custom-file-label" for="foto">Selecionar foto...</label>
@@ -77,14 +81,14 @@
 		form.append("nome", document.getElementById('nome').value);
 		form.append("telefone", document.getElementById('telefone').value);
 		form.append("forma_de_pagamento", document.getElementById('forma_de_pagamento').value);
-		form.append("faz_entrega", document.getElementById('faz_entrega').value);
-		form.append("endereco", document.getElementById('endereco').value);
+		form.append("id_categoria", seleciona(document.getElementById('id_categoria')));
+		form.append("area_de_cobertura", document.getElementById('area_de_cobertura').value);
 		form.append("foto", foto.files[0]);
 		
 		document.getElementById("form").style.display = "none";
 		document.getElementById("loaderContainer").style.display = "block";
 		
-		fetch('<?=base_url()."/admin/cadastrarFeirante";?>',{
+		fetch('<?=base_url()."admin/cadastrarautonomo";?>',{
 			method: "POST",
 			body: form
 		}).then(function(response){
@@ -95,6 +99,7 @@
 				${data.msg}</div>`);
 					document.getElementById("form").reset();
 					document.getElementById("form").style.display = "block";
+					document.getElementById("foto").innerHTML = "Selecionar foto";
 				})				
 			}else{
 				console.log('Ocorreu algum erro de rede');
@@ -103,4 +108,20 @@
 			console.log(error.message);
 		})
 	}
+	
+	function seleciona(sel){
+		
+		let values = $(sel).val();
+		return values;
+	}
+	
+	$(document).ready(function(){
+		$('.js-example-basic-multiple').select2({
+			language:{
+				noResults: function(){
+					return "Nenhum resultado encontrado";
+				}
+			}
+		});
+	});	
 </script>
