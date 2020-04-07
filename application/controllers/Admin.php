@@ -123,9 +123,28 @@ class Admin extends CI_Controller {
 	public function cadastrarCategoria(){
 		$tbl_categoria['categoria'] = $this->input->post("categoria");				
 		if($this->db->insert('tbl_categoria', $tbl_categoria)){
-			echo json_encode(array('msg' => "Categoria ".$this->input->post('categoria')." cadastrada com sucesso."));	
+			echo json_encode(array('msg' => "Categoria ".$this->input->post('categoria')." cadastrada com sucesso."));
+			//upload da foto
+			$config['upload_path'] = './uploads/categorias/'; 
+			$config['file_name'] = $this->db->insert_id();
+			$config['allowed_types'] = 'jpeg|jpg|png'; 
+			$config['max_size']	= 10000;
+			$config['overwrite'] = true;
+			$config['file_ext_tolower'] = true;
+			$this->upload->initialize($config);
+			$this->insereCategoria($this->db->insert_id());
+			if(!$this->upload->do_upload("foto")){
+				echo json_encode(array('msg' => 'Não foi possível salvar a foto: '.$this->upload->display_errors()));
+			}			
 		}else{
 			echo json_encode(array('msg' => 'Houve algum erro.'));
 		}
 	}	
+	
+	public function listaCategorias(){
+		$dados['categorias'] = $this->admin_model->listacategorias()->result();
+		$this->load->view('admin/header/header');
+		$this->load->view('admin/lista_categoria', $dados);
+		$this->load->view('admin/footer/footer');
+	}		
 }

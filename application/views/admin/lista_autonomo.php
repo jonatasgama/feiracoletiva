@@ -17,7 +17,6 @@
 				  <th scope="col">Nome</th>
 				  <th scope="col">Endereço</th>
 				  <th scope="col">Forma de Pagamento</th>
-				  <th scope="col">Entrega</th>
 				  <th scope="col">Telefone</th>
 				</tr>
 			  </thead>
@@ -62,18 +61,16 @@
 		for(index in result){
 				var id = result[index].id;
 				var nome = result[index].nome;
-				var endereco = result[index].endereco;
+				var area_de_cobertura = result[index].area_de_cobertura;
 				var forma_de_pagamento = result[index].forma_de_pagamento;
-				var faz_entrega = result[index].faz_entrega;
 				var telefone = result[index].telefone;
 				sno+=1;
 		 
 				var tr = "<tr>";
 				tr += "<td>"+ id +"</td>";
 				tr += "<td>"+ nome +"</td>";
-				tr += "<td>"+ endereco +"</td>";
+				tr += "<td>"+ area_de_cobertura +"</td>";
 				tr += "<td>"+ forma_de_pagamento +"</td>";
-				tr += "<td>"+ faz_entrega +"</td>";
 				tr += "<td>"+ telefone +"</td>";
 				tr += "</tr>";
 				$('#postsList tbody').append(tr);

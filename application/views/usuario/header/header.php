@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/responsive.css');?>">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 
-    <title>Autônomos</title>
+    <title>Feira Coletiva</title>
   </head>
   
   <body>
@@ -23,10 +23,10 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto mt-lg-0">
 		  <li class="nav-item active">
-			<a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+			<a class="nav-link" href="<?=base_url();?>">Início <span class="sr-only">(current)</span></a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#servicos">Serviços</a>
+			<a class="nav-link" href="<?=base_url();?>#categorias">Categorias</a>
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="#">Quem Somos</a>
@@ -38,12 +38,12 @@
 			<div class="navbar-nav mr-5 mt-lg-0">
 			  <div class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  <i class="far fa-user"></i> Bem vindo <?=$this->session->userdata('nome');?>
+				  <i class="far fa-user"></i> Login
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <a class="dropdown-item" href="#"><i class="far fa-arrow-alt-circle-left"></i> Logout</a>
+				  <button type="button" class="dropdown-item" data-target="#login" data-toggle="modal"><i class="fas fa-sign-in-alt" data-target="login"></i> Entrar</button>
 				  <div class="dropdown-divider"></div>
-				  <a class="dropdown-item" href="#"><i class="far fa-address-card"></i> Perfil</a>
+				  <button type="button" class="dropdown-item" data-target="#cadastro" data-toggle="modal"><i class="far fa-address-card"></i> Criar conta</button>
 				</div>
 			  </div>
 			</div>
@@ -52,3 +52,16 @@
 		
 	  </div>
 	</nav>
+	
+	<div id="principal" data-parallax="scroll" data-image-src="<?=base_url('vendor/twbs/bootstrap/dist/img/arquiteto.jpg');?>">
+
+		<p id="p_principal">Autônomos</p>
+		
+		<form class="container" method="get" action="<?=base_url("usuario/pesquisa");?>">
+		  <div class="form-group">
+			<input type="text" class="form-control form-control-lg" name="termo" placeholder="Procurar">
+		  </div>
+		  <button type="submit" class="btn btn-primary btn-lg">Pesquisar</button>
+		</form>
+
+	</div>	

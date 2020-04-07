@@ -17,8 +17,14 @@
 					<label for="categoria">Categoria</label>
 					<input type="text" class="form-control" id="categoria" name="categoria">
 				  </div>
-				  
 				</div>
+				
+				  <div class="custom-file">
+					<input type="file" class="custom-file-input" name="foto" id="foto" required>
+					<label class="custom-file-label" for="foto">Selecionar foto...</label>
+				  </div>
+				  
+				
 				
 			  <button type="button" onclick="envia()" class="btn btn-primary mt-3">Salvar</button>
 			</form>
@@ -42,7 +48,10 @@
 
 		let form = new FormData();
 		
+		var foto = document.querySelector('input[type="file"]')
+		
 		form.append("categoria", document.getElementById('categoria').value);
+		form.append("foto", foto.files[0]);
 		
 		document.getElementById("form").style.display = "none";
 		document.getElementById("loaderContainer").style.display = "block";
