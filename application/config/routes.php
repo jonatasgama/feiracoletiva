@@ -53,4 +53,4 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['categoria/(:num)/(:any)'] = 'usuario/selecionacategoria/$1/$2';
+$route['categoria/(:num)'] = 'usuario/selecionacategoria/$1';
