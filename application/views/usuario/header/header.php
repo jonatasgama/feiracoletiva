@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/bootstrap.min.css');?>">
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/main.css');?>">
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/responsive.css');?>">
+	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/css-stars.css');?>">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <title>Feira Coletiva</title>
   </head>
@@ -34,6 +36,7 @@
 		  
 		</ul>
 
+	<?php if(!$this->session->userdata("nome")){ ;?>
 		<form class="form-inline mr-5 my-lg-0">
 			<div class="navbar-nav mr-5 mt-lg-0">
 			  <div class="nav-item dropdown">
@@ -48,8 +51,26 @@
 			  </div>
 			</div>
 		</form>
-
 		
+	<?php }else{ ;?>
+	
+		<form class="form-inline mr-5 my-lg-0">
+			<div class="navbar-nav mr-5 mt-lg-0">
+			  <div class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  <i class="far fa-user"></i> Olá <?=$this->session->userdata("nome");?>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				  <a href="<?=base_url("login/logout");?>" class="dropdown-item"><i class="far fa-arrow-alt-circle-left"></i> Sair</a>
+				  <div class="dropdown-divider"></div>
+				  <button type="button" class="dropdown-item" data-target="#cadastro" data-toggle="modal"><i class="far fa-address-card"></i> Perfil</button>
+				</div>
+			  </div>
+			</div>
+		</form>		
+		
+	<?php } ;?>
+	
 	  </div>
 	</nav>
 	

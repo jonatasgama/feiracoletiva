@@ -47,4 +47,35 @@ class Usuario_model extends CI_Model{
 		$result = $this->db->query($sql, array($id));
 		return $result;
 	}
+	
+	public function avaliacaoUsuario($id_autonomo, $id_usuario){
+		$sql = "SELECT * FROM tbl_avaliacao WHERE id_autonomo = ? and id_usuario = ?";
+		$result = $this->db->query($sql, array($id_autonomo, $id_usuario));
+		return $result;		
+	}
+	
+	public function avaliacaoMedia($id_autonomo){
+		$sql = "SELECT ROUND(AVG(avaliacao),0) as averageRating FROM tbl_avaliacao WHERE id_autonomo = ?";
+		$result = $this->db->query($sql, array($id_autonomo));
+		return $result;		
+	}	
+	
+	public function contabilizaAvaliacao($id_autonomo){
+		$id_usuario = $this->session->userdata("id");
+		$sql = "SELECT COUNT(*) AS cntpost FROM tbl_avaliacao WHERE id_autonomo = ? and id_usuario = $id_usuario";
+		$result = $this->db->query($sql, array($id_autonomo));
+		return $result;			
+	}
+	
+	public function setAvaliacao($id_usuario, $id_autonomo, $avaliacao){
+		$sql = "INSERT INTO tbl_avaliacao(id_usuario,id_autonomo,avaliacao) values(?, ?, ?)";
+		$result = $this->db->query($sql, array($id_usuario, $id_autonomo, $avaliacao));
+		return $result;		
+	}
+	
+	public function updateAvaliacao($avaliacao, $id_autonomo, $id_usuario){
+		$sql = "UPDATE tbl_avaliacao SET avaliacao = ? WHERE id_autonomo = ? AND id_usuario = ?";
+		$result = $this->db->query($sql, array($avaliacao, $id_autonomo, $id_usuario));
+		return $result;		
+	}	
 }

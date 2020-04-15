@@ -1,8 +1,6 @@
 <?php
 	echo "<pre>";
-	print_r($autonomos);
-	echo "<br>";
-	print_r($cats);
+	print_r($avaliacao_media);
 	echo "</pre>";
 ?>
 	
@@ -28,7 +26,6 @@
 			  <ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="<?=base_url();?>">Início</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Estados</li>
-				<!--<li class="breadcrumb-item active" aria-current="page"><?=$estados['0']->estado;?></li>-->
 			  </ol>
 			</nav>
 			<div class="row d-flex align-content-start flex-wrap">
@@ -38,7 +35,6 @@
 					  <div class="card-body">
 						<h5 class="card-title"><?=$autonomos[$at]->nome;?></h5>
 						<!--<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>-->
-						<!--<a href="<?=base_url("usuario/selecionaCategoria/".$autonomos->id);?>" class="btn btn-primary btn-block">Navegar</a>-->
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item">Atendimento:<br><?=$autonomos[$at]->area_de_cobertura;?></li>
 							<li class="list-group-item">Pagamento:<br><?=$autonomos[$at]->forma_de_pagamento;?></li>
@@ -48,6 +44,35 @@
 									<br><?php print_r($cats[$at][$i]->categoria) ;?>
 								<?php } ;?>
 							</li>
+							<li class="list-group-item">
+								
+								<?php for($j = 0; $j < sizeof($avaliacao_media[$at]); $j++){ ;?>									
+									<div class="post">
+										<div class="post-action">
+										<!-- Rating -->
+											<select class='rating' id='rating_<?=$autonomos[$at]->id;?>' data-id='rating_<?=$autonomos[$at]->id;?>'>
+											<option value="1" >1</option>
+											<option value="2" >2</option>
+											<option value="3" >3</option>
+											<option value="4" >4</option>
+											<option value="5" >5</option>
+											</select>
+										<div style='clear: both;'></div>
+										Avaliação : <span id='avgrating_<?=$autonomos[$at]->id;?>'><?=$avaliacao_media[$at][$j]->averageRating;?></span>
+
+										<!-- Set rating -->
+										<script type='text/javascript'>
+											$(document).ready(function(){
+												let id = 'rating_<?=$autonomos[$at]->id;?>';
+												let avaliacao = '<?=$avaliacao_media[$at][$j]->averageRating;?>';
+												document.getElementById(id).value = avaliacao;
+											});
+										</script>
+										</div>
+									</div>									
+								<?php } ;?>							
+								
+							</li>							
 						</ul>
 					  </div>
 					  

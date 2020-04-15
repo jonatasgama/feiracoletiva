@@ -29,16 +29,48 @@
 	  </div>
 	</div>
 	
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="<?=base_url('vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js');?>"></script>
 	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/parallax.min.js');?>"></script>
 	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/main.js');?>"></script>
 	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/md5.js');?>"></script>
+	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/jquery.barrating.min.js');?>"></script>
 	<script src="https://kit.fontawesome.com/7d9c1a4234.js" crossorigin="anonymous"></script>
 	<script>
 		function criptoSenha(senha){
 			document.getElementById("senha").value = md5(senha);
 		}	
+		
+		
+		$(function() {
+		 $('.rating').barrating({
+		  theme: 'css-stars',
+		  onSelect: function(value, text, event) {
+		   // Get element id by data-id attribute
+		   var el = this;
+		   var el_id = el.$elem.data('id');
+
+		   // rating was selected by a user
+		   if (typeof(event) !== 'undefined') {
+		 
+			 var split_id = el_id.split("_");
+			 var id_autonomo = split_id[1]; // postid
+
+			 // AJAX Request
+			 $.ajax({
+			   url: '<?=base_url("usuario/avaliacaoAjax");?>',
+			   type: 'post',
+			   data: {id_autonomo:id_autonomo,avaliacao:value},
+			   dataType: 'json',
+			   success: function(data){
+				 // Update average
+				 var average = data['0'].averageRating;
+				 $('#avgrating_'+id_autonomo).text(average);
+			   }
+			 });
+		   }
+		  }
+		 });
+		});		
 	</script>
   </body>
 </html>
