@@ -31,7 +31,7 @@ class Usuario_model extends CI_Model{
 	}	
 
 	public function selecionaCategoria($id){
-		$sql = "SELECT tbl_autonomo.id, tbl_autonomo.nome, tbl_autonomo.area_de_cobertura, tbl_autonomo.forma_de_pagamento, tbl_autonomo.telefone, tbl_ca.id_categoria, tbl_categoria.categoria FROM tbl_autonomo INNER JOIN tbl_categoria_autonomo tbl_ca ON tbl_ca.id_autonomo = tbl_autonomo.id INNER JOIN tbl_categoria ON tbl_ca.id_categoria = tbl_categoria.id WHERE tbl_ca.id_categoria = ?";
+		$sql = "SELECT tbl_autonomo.id, tbl_autonomo.ext, tbl_autonomo.nome, tbl_autonomo.area_de_cobertura, tbl_autonomo.forma_de_pagamento, tbl_autonomo.telefone, tbl_ca.id_categoria, tbl_categoria.categoria FROM tbl_autonomo INNER JOIN tbl_categoria_autonomo tbl_ca ON tbl_ca.id_autonomo = tbl_autonomo.id INNER JOIN tbl_categoria ON tbl_ca.id_categoria = tbl_categoria.id WHERE tbl_ca.id_categoria = ?";
 		$result = $this->db->query($sql, array($id));
 		return $result;
 	}

@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/main.css');?>">
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/responsive.css');?>">
 	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/css-stars.css');?>">
+	<link rel="stylesheet" href="<?=base_url('vendor/twbs/bootstrap/dist/css/toastr.css');?>">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -80,9 +81,11 @@
 		
 		<form class="container" method="get" action="<?=base_url("usuario/pesquisa");?>">
 		  <div class="form-group">
-			<input type="text" class="form-control form-control-lg" name="termo" placeholder="Procurar">
+			<input type="text" class="form-control form-control-lg" name="termo" placeholder="Serviço">
 		  </div>
 		  <button type="submit" class="btn btn-primary btn-lg">Pesquisar</button>
 		</form>
 
 	</div>	
+	
+	

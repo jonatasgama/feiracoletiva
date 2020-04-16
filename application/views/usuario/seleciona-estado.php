@@ -1,9 +1,4 @@
-<?php
-	echo "<pre>";
-	print_r($avaliacao_media);
-	echo "</pre>";
-?>
-	
+
 	<div id="geral" class="d-flex align-content-start container mb-5">
 		<nav class="nav flex-column">
 		<h5 class="nav-link">categorias</h5>

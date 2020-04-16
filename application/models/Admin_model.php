@@ -29,5 +29,10 @@ class Admin_model extends CI_Model{
 		$result = $this->db->query($sql);
 		return $result;
 	}	
-
+	
+	public function listaEstados(){
+		$sql = "SELECT * FROM tbl_estado";
+		$result = $this->db->query($sql);
+		return $result;
+	}
 }

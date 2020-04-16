@@ -24,16 +24,27 @@
 				</div>
 				
 				<div class="row">
-				  <div class="form-group col-12">
+				  <div class="form-group col-9">
 					<label for="forma_de_pagamento">Formas de Pagamento</label>
-					<input type="text" class="form-control" id="forma_de_pagamento" name="forma_de_pagamento">
+					<input type="text" class="form-control" id="forma_de_pagamento" name="forma_de_pagamento" placeholder="Preencher utilizando a barra(/) para vários formas de pamagamento. Ex: Dinheiro / Débito / Crédito">
 				  </div>
+				  
+				  <div class="form-group col-3">
+					  <div class="form-group">
+						<label for="id_categoria">Estado</label>
+						<select class="form-control" id="id_estado" name="id_estado">
+							<?php foreach($estados as $estado){ ?>
+								<option value="<?=$estado->id?>"><?=$estado->nome?></option>
+							<?php } ?>
+						</select>
+					  </div>
+				  </div>				  
 				  
 				</div>
 				
 			  <div class="form-group">
 				<label for="area_de_cobertura">Área de Cobertura</label>
-				<textarea class="form-control" id="area_de_cobertura" name="area_de_cobertura" rows="3"></textarea>
+				<textarea class="form-control" id="area_de_cobertura" name="area_de_cobertura" rows="3" placeholder="Preencher utilizando a barra(/) para vários locais. Ex: Zona Sul / Centro / Barra"></textarea>
 			  </div>		  
 			  
 			  <div class="row">
@@ -82,6 +93,7 @@
 		form.append("telefone", document.getElementById('telefone').value);
 		form.append("forma_de_pagamento", document.getElementById('forma_de_pagamento').value);
 		form.append("id_categoria", seleciona(document.getElementById('id_categoria')));
+		form.append("id_estado", seleciona(document.getElementById('id_estado')));
 		form.append("area_de_cobertura", document.getElementById('area_de_cobertura').value);
 		form.append("foto", foto.files[0]);
 		

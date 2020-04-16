@@ -34,43 +34,75 @@
 	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/main.js');?>"></script>
 	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/md5.js');?>"></script>
 	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/jquery.barrating.min.js');?>"></script>
+	<script src="<?=base_url('vendor/twbs/bootstrap/dist/js/toastr.min.js');?>"></script>
 	<script src="https://kit.fontawesome.com/7d9c1a4234.js" crossorigin="anonymous"></script>
 	<script>
 		function criptoSenha(senha){
 			document.getElementById("senha").value = md5(senha);
-		}	
-		
+		}			
 		
 		$(function() {
 		 $('.rating').barrating({
 		  theme: 'css-stars',
 		  onSelect: function(value, text, event) {
 		   // Get element id by data-id attribute
-		   var el = this;
-		   var el_id = el.$elem.data('id');
+		   let result = isLogado('<?=$this->session->userdata('id');?>');
+		   if(result != false){
+			   var el = this;
+			   var el_id = el.$elem.data('id');
 
-		   // rating was selected by a user
-		   if (typeof(event) !== 'undefined') {
-		 
-			 var split_id = el_id.split("_");
-			 var id_autonomo = split_id[1]; // postid
+			   // rating was selected by a user
+			   if (typeof(event) !== 'undefined') {
+			 
+				 var split_id = el_id.split("_");
+				 var id_autonomo = split_id[1]; // postid
 
-			 // AJAX Request
-			 $.ajax({
-			   url: '<?=base_url("usuario/avaliacaoAjax");?>',
-			   type: 'post',
-			   data: {id_autonomo:id_autonomo,avaliacao:value},
-			   dataType: 'json',
-			   success: function(data){
-				 // Update average
-				 var average = data['0'].averageRating;
-				 $('#avgrating_'+id_autonomo).text(average);
-			   }
-			 });
+				 // AJAX Request
+				 $.ajax({
+				   url: '<?=base_url("usuario/avaliacaoAjax");?>',
+				   type: 'post',
+				   data: {id_autonomo:id_autonomo,avaliacao:value},
+				   dataType: 'json',
+				   success: function(data){
+					 // Update average
+					 var average = data['0'].averageRating;
+					 $('#avgrating_'+id_autonomo).text(average);
+				   }
+				 });
+			   }			   
 		   }
+
 		  }
 		 });
 		});		
+		
+		function isLogado(id){
+			if(id == ""){
+				toastr["info"]("É preciso estar logado para avaliar.")
+			
+				toastr.options = {
+				  "closeButton": true,
+				  "debug": false,
+				  "newestOnTop": false,
+				  "progressBar": false,
+				  "positionClass": "toast-top-right",
+				  "preventDuplicates": true,
+				  "onclick": null,
+				  "showDuration": "500",
+				  "hideDuration": "1000",
+				  "timeOut": "5000",
+				  "extendedTimeOut": "1000",
+				  "showEasing": "swing",
+				  "hideEasing": "linear",
+				  "showMethod": "fadeIn",
+				  "hideMethod": "fadeOut"
+				}
+				
+				return false;
+			}else{
+				return true;
+			}
+		}
 	</script>
   </body>
 </html>

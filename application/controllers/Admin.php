@@ -21,6 +21,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function cadastraAutonomo(){
+		$data['estados'] = $this->admin_model->listaEstados()->result();
 		$data['categorias'] = $this->admin_model->listaCategorias()->result();
 		$this->load->view('admin/header/header');
 		$this->load->view('admin/cadastra_autonomo', $data);
@@ -31,8 +32,12 @@ class Admin extends CI_Controller {
 		$tbl_autonomo['nome'] = $this->input->post("nome");
 		$tbl_autonomo['telefone'] = $this->input->post("telefone");
 		$tbl_autonomo['forma_de_pagamento'] = $this->input->post("forma_de_pagamento");	
+		$tbl_autonomo['id_estado'] = $this->input->post("id_estado");
 		//$tbl_autonomo['id_categoria'] = $this->input->post("id_categoria");
-		$tbl_autonomo['area_de_cobertura'] = str_replace(array("\r","\n"), " ", $this->input->post("area_de_cobertura"));	
+		$tbl_autonomo['area_de_cobertura'] = $this->input->post("area_de_cobertura");	
+		$type = explode(".", $_FILES['foto']['name']);
+		$extensao = array_slice($type, ( sizeof($type)-1 ));
+		$tbl_autonomo['ext'] = implode("",$extensao);
 				
 		if($this->db->insert('tbl_autonomo', $tbl_autonomo)){
 			echo json_encode(array('msg' => 'Dados salvos com sucesso.'));
