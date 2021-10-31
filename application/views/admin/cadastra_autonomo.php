@@ -19,7 +19,7 @@
 				  
 				  <div class="form-group col-6">
 					<label for="telefone">Telefone</label>
-					<input type="text" class="form-control" id="telefone" name="telefone">
+					<input type="text" class="form-control" id="telefone" name="telefone" placeholder="DDD + telefone">
 				  </div>			  
 				</div>
 				

@@ -65,7 +65,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-users"></i><span>Usuários</span>
         </a>
@@ -76,7 +76,7 @@
             <a class="collapse-item" href="">Listar</a>
           </div>
         </div>
-      </li>
+      </li>-->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categorias" aria-expanded="true" aria-controls="categorias">
@@ -155,7 +155,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
+          <!-- Topbar Search
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -165,17 +165,17 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form>-->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <!-- Nav Item - Search Dropdown (Visible Only XS)
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
-              <!-- Dropdown - Messages -->
+              <!-- Dropdown - Messages
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
@@ -188,7 +188,7 @@
                   </div>
                 </form>
               </div>
-            </li>
+            </li> -->
 
 
             <div class="topbar-divider d-none d-sm-block"></div>

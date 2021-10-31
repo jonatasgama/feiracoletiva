@@ -39,12 +39,33 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Feira Coletiva!</h1>
                   </div>
-                  <form class="user" method="post" action="<?=base_url('login/loginAdmin');?>">
+				  
+					<?php
+						if($this->session->flashdata('msg-danger')){ ?>
+							<div class="mt-2 alert alert-danger text-center">
+								<?=$this->session->flashdata('msg-danger');?>
+							</div>
+					<?php } ;?>
+
+					<?php
+						if($this->session->flashdata('msg-success')){ ?>
+							<div class="mt-2 alert alert-success text-center">
+								<?=$this->session->flashdata('msg-success');?>
+							</div>
+					<?php } ; ?>
+
+					<?php
+						if($this->session->flashdata('msg-warning')){ ?>
+							<div class="mt-2 alert alert-warning text-center">
+								<?=$this->session->flashdata('msg-warning');?>
+							</div>
+					<?php } ; ?>				  
+                  <form class="user" method="post" action="<?=base_url('login/loginAdmin');?>" onsubmit="criptoSenha(document.getElementById('senha').value)">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Emaik">
+                      <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="senha" name="senha" placeholder="Senha" onblur="criptoSenha(this.value)">
+                      <input type="password" class="form-control form-control-user" id="senha" name="senha" placeholder="Senha" >
                     </div>
                     <div class="form-group">
                     </div>

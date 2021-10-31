@@ -4,6 +4,10 @@ class Admin extends CI_Controller {
 	
     public function __construct(){
         parent::__construct();
+		$nome = $this->session->userdata('nome');
+		if(empty($nome)){
+			redirect('admin');
+		}
 		$this->load->model('usuario_model');
 		$this->load->model('padrao_model');
 		$this->load->model('admin_model');
@@ -12,7 +16,7 @@ class Admin extends CI_Controller {
 
 
 	public function index(){
-		$this->load->view('admin/login');;
+		$this->load->view('admin/login');
 	}
 	
 	public function main(){
@@ -126,7 +130,10 @@ class Admin extends CI_Controller {
 	}	  
 	
 	public function cadastrarCategoria(){
-		$tbl_categoria['categoria'] = $this->input->post("categoria");				
+		$tbl_categoria['categoria'] = $this->input->post("categoria");	
+		$type = explode(".", $_FILES['foto']['name']);
+		$extensao = array_slice($type, ( sizeof($type)-1 ));
+		$tbl_categoria['ext'] = implode("",$extensao);		
 		if($this->db->insert('tbl_categoria', $tbl_categoria)){
 			echo json_encode(array('msg' => "Categoria ".$this->input->post('categoria')." cadastrada com sucesso."));
 			//upload da foto

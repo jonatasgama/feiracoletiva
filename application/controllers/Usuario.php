@@ -6,6 +6,7 @@ class Usuario extends CI_Controller {
         parent::__construct();
 		$this->load->model('usuario_model');
 		$this->load->model('padrao_model');
+		//verificaSessao($this->session->userdata('nome'));
     }	
 
 
@@ -46,7 +47,10 @@ class Usuario extends CI_Controller {
 		$this->load->view('usuario/footer/footer');
 	}	
 
-	public function selecionaEstado($id){
+	public function selecionaEstado($id, $estado = null){
+		if($estado){
+			$dados['estado'] = $estado;
+		}		
 		$dados['autonomos'] = $this->usuario_model->selecionaEstado($id)->result();
 		$dados['categorias'] = $this->usuario_model->listacategorias()->result();
 		$categoria_autonomo = [];
@@ -79,4 +83,54 @@ class Usuario extends CI_Controller {
 		echo json_encode($avaliacaoMedia);
 	}
 	
+	public function cadastrar(){
+		$tbl_usuario['nome'] = $this->input->post("nome");
+		$tbl_usuario['email'] = $this->input->post("email"); 
+		$tbl_usuario['senha'] = md5($this->input->post("senha"));
+		$tbl_usuario['telefone'] = $this->input->post("telefone");
+		if($this->db->insert('tbl_usuario', $tbl_usuario)){
+			redirect("login/");
+		}
+		
+	}
+	
+	public function buscaRefinada(){
+		$dados['categorias'] = $this->usuario_model->listacategorias()->result();
+		$dados['estados'] = $this->usuario_model->listaestados()->result();
+		$this->load->view('usuario/header/header');
+		$this->load->view('usuario/busca-refinada', $dados);
+		$this->load->view('usuario/footer/footer');
+	}	
+	
+	public function realizarBuscaRefinada(){
+		$estado = $this->input->post('inputEstado');
+		$servico = $this->input->post('inputCategoria');
+		$area = $this->input->post('area');
+		$dados['autonomos'] = $this->usuario_model->realizarBuscaRefinada($estado, $servico, $area)->result();
+		
+		$categoria_autonomo = [];
+		foreach($dados['autonomos'] as $autonomo){
+			$categoria_autonomo[] = $this->usuario_model->retornaCategorias($autonomo->id)->result();
+		}
+		$avaliacao_media = [];
+		foreach($dados['autonomos'] as $autonomo){
+			$avaliacao_media[] = $this->usuario_model->avaliacaoMedia($autonomo->id)->result();
+		}
+		
+		$dados['cats'] = $categoria_autonomo;
+		$dados['avaliacao_media'] = $avaliacao_media;	
+		$dados['categorias'] = $this->usuario_model->listacategorias()->result();
+		$dados['estados'] = $this->usuario_model->listaestados()->result();		
+		$this->load->view('usuario/header/header');
+		$this->load->view('usuario/busca-refinada', $dados);
+		$this->load->view('usuario/footer/footer');
+	}	
+	
+	public function verificaEmail(){
+		$email = $this->input->post('email');
+		$email = $this->usuario_model->verificaEmail($email)->result();
+		if(sizeof($email) > 0){
+			echo json_encode(array('msg' => 'E-mail já cadastrado'));
+		}		
+	}
 }

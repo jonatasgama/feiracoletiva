@@ -25,10 +25,14 @@
 				<li class="breadcrumb-item active" aria-current="page"><?=$termo;?></li>
 			  </ol>
 			</nav>
+			
+			<?php if(!$resultado){ ;?>
+				<h3 class="text-center">Nenhum resultado encontrado</h3>	
+			<?php } ;?>
 			<div class="row d-flex align-content-start flex-wrap">
 				<?php for($at = 0; $at < sizeof($resultado); $at++){ ;?>
-					<div class="card mb-5 col-lg-3" style="width: 16rem;">
-					  <img src="<?=base_url("uploads/".$resultado[$at]->id.".jpg");?>" class="card-img-top" alt="...">
+					<div class="card mb-5 col-lg-3 col-12" style="width: 16rem;">
+					  <img src="<?=base_url("uploads/".$resultado[$at]->id.".".$resultado[$at]->ext);?>" class="card-img-top" alt="...">
 					  <div class="card-body">
 						<h5 class="card-title"><?=$resultado[$at]->nome;?></h5>
 						<!--<p class="card-text">Produtos sempre fresquinhos e colhidos com amor e cuidado. Cuide da sua limentação, cuide da sua saúde.</p>-->

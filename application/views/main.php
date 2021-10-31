@@ -34,24 +34,45 @@
 		  
 		</ul>
 
-    <form class="form-inline mr-5 my-lg-0">
-		<div class="navbar-nav mr-5 mt-lg-0">
-		  <div class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  <i class="far fa-user"></i> Login
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  <button type="button" class="dropdown-item" data-target="#login" data-toggle="modal"><i class="fas fa-sign-in-alt" data-target="login"></i> Entrar</button>
-			  <div class="dropdown-divider"></div>
-			  <button type="button" class="dropdown-item" data-target="#cadastro" data-toggle="modal"><i class="far fa-address-card"></i> Criar conta</button>
+		<form class="form-inline mr-5 my-lg-0">
+			<div class="navbar-nav mr-5 mt-lg-0">
+			  <div class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  <i class="far fa-user"></i> Login
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				  <button type="button" class="dropdown-item" data-target="#login" data-toggle="modal"><i class="fas fa-sign-in-alt" data-target="login"></i> Entrar</button>
+				  <div class="dropdown-divider"></div>
+				  <button type="button" class="dropdown-item" data-target="#cadastro" data-toggle="modal"><i class="far fa-address-card"></i> Criar conta</button>
+				</div>
+			  </div>
 			</div>
-		  </div>
-		</div>
-    </form>
+		</form>
 
 		
 	  </div>
 	</nav>
+	
+	<?php
+		if($this->session->flashdata('msg-danger')){ ?>
+			<div class="mt-2 alert alert-danger text-center">
+				<?=$this->session->flashdata('msg-danger');?>
+			</div>
+	<?php } ;?>
+
+	<?php
+		if($this->session->flashdata('msg-success')){ ?>
+			<div class="mt-2 alert alert-success text-center">
+				<?=$this->session->flashdata('msg-success');?>
+			</div>
+	<?php } ; ?>
+
+	<?php
+		if($this->session->flashdata('msg-warning')){ ?>
+			<div class="mt-2 alert alert-warning text-center">
+				<?=$this->session->flashdata('msg-warning');?>
+			</div>
+	<?php } ; ?>
 	
 	<div id="principal" data-parallax="scroll" data-image-src="vendor/twbs/bootstrap/dist/img/arquiteto.jpg">
 

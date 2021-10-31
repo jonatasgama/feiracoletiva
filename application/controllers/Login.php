@@ -10,9 +10,11 @@ class Login extends CI_Controller {
     }	
 
 
-	public function index(){
-		$login = $this->input->post('email');
-		$senha = $this->input->post('senha');
+	public function index($login = null, $senha = null){
+		if($login == null && $senha == null){
+			$login = $this->input->post('loginEmail');
+			$senha = md5($this->input->post('loginSenha'));
+		}
 		$usuario = $this->usuario_model->login($login, $senha)->result();
 		if($usuario){
 			foreach($usuario as $u)

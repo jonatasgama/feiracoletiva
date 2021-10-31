@@ -17,7 +17,7 @@
 		
 		<div class="container" id="autonomos">
 		
-			<p id="p_autonomos">Autônomos</p>
+			<!--<p id="p_autonomos">Autônomos</p>-->
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="<?=base_url();?>">Início</a></li>
@@ -25,9 +25,31 @@
 				<li class="breadcrumb-item active" aria-current="page"><?=$autonomos['0']->categoria;?></li>
 			  </ol>
 			</nav>
-			<div class="row d-flex align-content-start flex-wrap">
+			
+			<form class="form-inline" id="filtro">
+			
+				<div class="col-6 form-group mb-3">
+					<select id="inputCategoria" class="form-control" onchange="redireciona(event)">
+						<option selected>Categorias...</option>
+						<?php foreach($categorias as $cat){; ?>
+							<option value="<?=$cat->id;?>" data-url="<?=base_url("categoria/$cat->id");?>"><?=$cat->categoria;?></option>
+						<?php } ;?>
+					</select>
+				</div>
+				<div class="col-6 form-group mb-3">
+					<select id="inputEstado" class="form-control" onchange="redireciona(event)">
+						<option selected>Estado...</option>
+						<?php foreach($estados as $estado){; ?>
+							<option value="<?=$estado->id;?>" data-url="<?=base_url("usuario/selecionaEstado/$estado->id");?>"><?=$estado->nome;?></option>
+						<?php } ;?>
+					</select>
+				</div>
+			
+			</form>
+
+			<div class="row d-flex align-content-sm-start flex-wrap">
 				<?php for($at = 0; $at < sizeof($autonomos); $at++){ ;?>
-					<div class="card mb-5 col-lg-3" style="width: 16rem;">
+					<div class="card mb-5 col-lg-3 col-12" style="width: 16rem;">
 					  <img src="<?=base_url("uploads/".$autonomos[$at]->id.".".$autonomos[$at]->ext);?>" class="card-img-top" alt="...">
 					  <div class="card-body">
 						<h5 class="card-title"><?=$autonomos[$at]->nome;?></h5>

@@ -33,7 +33,10 @@
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="#">Quem Somos</a>
-		  </li>		  
+		  </li>	
+		  <li class="nav-item">
+			<a class="nav-link" href="<?=base_url("usuario/buscaRefinada");?>">Busca Refinada</a>
+		  </li>			  
 		  
 		</ul>
 
@@ -45,7 +48,7 @@
 				  <i class="far fa-user"></i> Login
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <button type="button" class="dropdown-item" data-target="#login" data-toggle="modal"><i class="fas fa-sign-in-alt" data-target="login"></i> Entrar</button>
+				  <button type="button" class="dropdown-item" data-target="#login" data-toggle="modal"><i class="fas fa-sign-in-alt"></i> Entrar</button>
 				  <div class="dropdown-divider"></div>
 				  <button type="button" class="dropdown-item" data-target="#cadastro" data-toggle="modal"><i class="far fa-address-card"></i> Criar conta</button>
 				</div>
@@ -64,7 +67,7 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				  <a href="<?=base_url("login/logout");?>" class="dropdown-item"><i class="far fa-arrow-alt-circle-left"></i> Sair</a>
 				  <div class="dropdown-divider"></div>
-				  <button type="button" class="dropdown-item" data-target="#cadastro" data-toggle="modal"><i class="far fa-address-card"></i> Perfil</button>
+				  <button type="button" class="dropdown-item" data-target="#pefil" data-toggle="modal"><i class="far fa-address-card"></i> Perfil</button>
 				</div>
 			  </div>
 			</div>
